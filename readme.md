@@ -72,9 +72,8 @@ vagrant plugin install vagrant-hostmanager
 1. **Clone this project:**
 
 ```bash
-git clone https://github.com/egnicolas/vprofile-infra-portfolio.git
-cd vprofile-infra-portfolio
-cd vagrant/Manual_provisioning
+git clone https://github.com/egnicolas/FSIDV.git
+cd FSIDV/Automated_provisioning_MacOSM1
 ```
 
 2. **Boot up the environment (automated):**
@@ -106,15 +105,40 @@ http://web01
 
 *Note: You may need to update your `/etc/hosts` file based on local VM IPs.*
 
+> **Default Credentials:**  
+> Username: `admin_vp`  
+> Password: `admin_vp`
+
 ## 📁 Project Structure
 
 ```
-vprofile-infra-portfolio/
-└── vagrant/
-    └── Manual_provisioning/
-        ├── Vagrantfile
-        ├── shell-scripts/
-        └── README.md
+FSIDV/
+├── ansible/                      # Ansible playbooks & templates for provisioning
+│   ├── ansible.cfg
+│   ├── site.yml
+│   ├── tomcat_setup.yml
+│   ├── vpro-app-setup.yml
+│   └── templates/
+├── assets/
+│   └── infra.png                 # Architecture diagram
+├── Automated_provisioning_MacOSM1/
+│   ├── Vagrantfile
+│   ├── backend.sh
+│   ├── memcache.sh
+│   ├── mysql.sh
+│   ├── nginx.sh
+│   ├── rabbitmq.sh
+│   ├── tomcat.sh
+│   └── tomcat_ubuntu.sh
+├── Jenkinsfile                   # CI/CD pipeline definition
+├── pom.xml                       # Maven project descriptor
+├── readme.md
+└── src/
+    ├── main/
+    │   ├── java/                 # Java source code
+    │   ├── resources/            # Application configs & SQL
+    │   └── webapp/               # Web resources (static, JSP, etc.)
+    └── test/                     # Unit & integration tests
 ```
 
 ## 🧠 Why This Project?
@@ -128,9 +152,28 @@ This project reflects my skills in:
 
 It serves as a hands-on demonstration of core DevOps concepts.
 
-## 🏁 Next Steps
+## 🏁 Next Steps & Improvements
 
-- Improve infrastructure by using declarative IaC tools like Ansible or Terraform
-- Integrate CI/CD pipelines for continuous delivery
-- Add monitoring and alerting (e.g., Prometheus, Grafana)
-- Add infrastructure diagrams and architecture screenshots
+**Technical Enhancements:**
+- Migrate to declarative IaC tools (Ansible, Terraform)
+- Implement CI/CD pipelines with Jenkins/GitHub Actions
+- Add comprehensive monitoring (Prometheus, Grafana, ELK Stack)
+- Containerize services with Docker and orchestrate with Kubernetes
+- Implement security scanning and compliance checks
+
+**Architecture Improvements:**
+- Add high availability and load balancing
+- Implement backup and disaster recovery strategies
+- Add SSL/TLS encryption and security hardening
+- Create infrastructure diagrams and network topology documentation
+
+## 📝 Portfolio Note
+
+This project serves as a learning demonstration and portfolio piece showcasing practical DevOps skills. The original architecture and methodology are based on Imran Teli's course content. This implementation demonstrates my ability to understand, adapt, and execute complex infrastructure automation tasks.
+
+**Skills Demonstrated:**
+- Infrastructure as Code (IaC) principles
+- Multi-tier application deployment
+- Linux system administration
+- Service orchestration and automation
+- Version control and documentation practices
